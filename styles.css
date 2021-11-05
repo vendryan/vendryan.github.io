@@ -1,0 +1,23 @@
+body {
+  width: 90%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+p, li {
+  line-height: 1.5;
+}
+
+a:link {
+  color: rebeccapurple;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px solid green;
+}
+
+a:focus {
+  background-color: limegreen;
+  color: white;
+}
