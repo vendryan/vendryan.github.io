@@ -1,0 +1,166 @@
+/* Table of Content
+ * || Typography
+ * || Page
+ * || Content
+ */
+
+
+/* || Typography */
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #E5C298;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* || Page */
+body {
+  max-width: 980px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* || Content */
+.memory-card {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 120px));
+  margin-bottom: 2rem;
+}
+
+.memory-card > div {
+  background-color: rebeccapurple;
+  border-radius: 20px;
+  padding-bottom: 100%;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
+  width: 200px;
+  height: 150px;
+}
+
+.popup h2 {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.popup button {
+  display: block;
+  margin: 30% auto 0 auto;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 20px;
+}
+
+.popup button:hover {
+  background-color: seagreen;
+}
+
+.popup button:active {
+  background-color: royalblue;
+}
+
+/* || Desktop screen */
+@media screen and (min-width: 475px) {
+  /* || Typography */
+  body {
+    font-size: 2.3rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+  }
+  
+  h3 {
+    font-size: 2.6rem;
+  }
+  
+  h4 {
+    font-size: 2.4rem;
+  }
+  
+  h5 {
+    font-size: 2.1rem;
+  }
+  
+  h6 {
+    font-size: 1.8rem;
+  }
+  
+  p {
+    margin-top: 0;
+  }
+
+  /* || Content */
+  .memory-card {
+    grid-gap: 2rem;
+    justify-content: center;
+  }
+
+  .popup {
+    width: 400px;
+    height: 300px;
+  }
+
+  .popup h2 {
+    margin-top: 2rem;
+  }
+
+  .popup button {
+    margin: 40% auto 0 auto;
+  }
+}
