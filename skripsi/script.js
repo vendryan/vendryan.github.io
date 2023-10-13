@@ -274,7 +274,7 @@ async function DFS(startX, startY, visualizerGrid) {
         if (currentNode.type === NODE_TYPE.EMPTY_NODE) {
             currentNode.changeType(NODE_TYPE.VISITED_NODE);
             visited[y][x] = 1;
-            await sleep(25);
+            await sleep(10);
         }
         else if (currentNode.type === NODE_TYPE.DESTINATION_NODE) {
             break;
@@ -316,7 +316,7 @@ async function DFS(startX, startY, visualizerGrid) {
             currentNode = visualizerGrid[currentNode.parent_y][currentNode.parent_x];
             if (currentNode.type !== NODE_TYPE.SOURCE_NODE) {
                 currentNode.changeType(NODE_TYPE.PATH_NODE);
-                await sleep(25);
+                await sleep(10);
             }
         }
     }
@@ -350,7 +350,7 @@ async function BFS(startX, startY, visualizerGrid) {
         if (currentNode.type === NODE_TYPE.EMPTY_NODE) {
             currentNode.changeType(NODE_TYPE.VISITED_NODE);
             visited[y][x] = 1;
-            await sleep(25);
+            await sleep(10);
         }
         else if (currentNode.type === NODE_TYPE.DESTINATION_NODE) {
             break;
@@ -392,7 +392,7 @@ async function BFS(startX, startY, visualizerGrid) {
             currentNode = visualizerGrid[currentNode.parent_y][currentNode.parent_x];
             if (currentNode.type !== NODE_TYPE.SOURCE_NODE) {
                 currentNode.changeType(NODE_TYPE.PATH_NODE);
-                await sleep(25);
+                await sleep(10);
             }
         }
     }
@@ -435,7 +435,7 @@ async function AStar(startX, startY, visualizerGrid) {
 
         if (currentNode.type === NODE_TYPE.EMPTY_NODE) {
             currentNode.changeType(NODE_TYPE.VISITED_NODE);
-            await sleep(25);
+            await sleep(10);
         }
         else if (currentNode.type === NODE_TYPE.DESTINATION_NODE) {
             break;
@@ -504,7 +504,7 @@ async function AStar(startX, startY, visualizerGrid) {
             currentNode = visualizerGrid[currentNode.parent_y][currentNode.parent_x];
             if (currentNode.type !== NODE_TYPE.SOURCE_NODE) {
                 currentNode.changeType(NODE_TYPE.PATH_NODE);
-                await sleep(25);
+                await sleep(10);
             }
         }
     }
@@ -1124,7 +1124,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'recursive-backtracking':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 0; x < VISUALIZER_GRID_WIDTH; x++) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
@@ -1156,7 +1155,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'eller-algorithm':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 1; x < VISUALIZER_GRID_WIDTH; x += 2) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
@@ -1169,7 +1167,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'kruskal-algorithm':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 0; x < VISUALIZER_GRID_WIDTH; x++) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
@@ -1211,7 +1208,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'prim-algorithm':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 0; x < VISUALIZER_GRID_WIDTH; x++) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
@@ -1240,7 +1236,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'binary-tree':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 0; x < VISUALIZER_GRID_WIDTH; x++) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
@@ -1259,7 +1254,6 @@ document.addEventListener('DOMContentLoaded', function(evt) {
             } break;
             case 'sidewinder':
             {
-                clearMaze();
                 for (let y = 1; y < VISUALIZER_GRID_HEIGHT; y += 2) {
                     for (let x = 0; x < VISUALIZER_GRID_WIDTH; x++) {
                         if (visualizerGrid[y][x].type === NODE_TYPE.EMPTY_NODE) {
