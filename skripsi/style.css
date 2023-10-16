@@ -177,6 +177,14 @@ code {
   background-color: rgb(255, 0, 0);
   transition: ease-in 0.2s;
 }
+.visualizer-grid__node--highlight {
+  background-color: blueviolet;
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--future {
+  background-color: lightgreen;
+  transition: ease-in 0.2s;
+}
 .visualizer-grid__text {
   position: absolute;
   left: 50%;
