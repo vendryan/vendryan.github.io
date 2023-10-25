@@ -81,7 +81,7 @@ class DFSStepper {
                     let x = this.currentNode.x;
                     let y = this.currentNode.y;
                     console.log(`Pop Node(${x}, ${y}) from the stack`);
-                    this.description = `Pop Node(${x},${y}) from the stack`;
+                    this.description = `Pop Node(${x}, ${y}) from the stack`;
                     this.removeNthElement(this.stack.length);
                     this.setCurrentNodeElement(x, y);
 
@@ -122,8 +122,8 @@ class DFSStepper {
                 let y = this.currentNode.y;
 
                 if (this.currentNode.type === NODE_TYPE.EMPTY_NODE || this.currentNode.type === NODE_TYPE.SOURCE_NODE) {
-                    console.log(`Mark Node(${x},${y}) as visited`);
-                    this.description = `Mark Node(${x},${y}) as visited`;
+                    console.log(`Mark Node(${x}, ${y}) as visited`);
+                    this.description = `Mark Node(${x}, ${y}) as visited`;
 
                     if (this.currentNode.type === NODE_TYPE.EMPTY_NODE) {
                         this.currentNode.changeType(NODE_TYPE.VISITED_NODE);
@@ -133,8 +133,8 @@ class DFSStepper {
                     this.currentStep = STEPPER.CONSIDER_LEFT;
                 }
                 else if (this.currentNode.type === NODE_TYPE.DESTINATION_NODE) {
-                    console.log(`Found Node(${x},${y}) as destination`);
-                    this.description = `Found Node(${x},${y}) as destination`;
+                    console.log(`Found Node(${x}, ${y}) as destination`);
+                    this.description = `Found Node(${x}, ${y}) as destination`;
                     this.currentStep = STEPPER.MAKE_PATH;
                 }
                 else {
@@ -164,26 +164,26 @@ class DFSStepper {
                     this.grid[y][x - 1].parent_y = y;
                     this.addStackElement(x - 1, y);
 
-                    console.log(`Push Node(${x - 1},${y}) into the stack`);
-                    console.log(`Make Node(${x},${y}) as the parent of Node(${x - 1},${y})`);
-                    this.description = `Push Node(${x - 1},${y}) into the stack and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x - 1},${y})`;
+                    console.log(`Push Node(${x - 1}, ${y}) into the stack`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y})`);
+                    this.description = `Push Node(${x - 1}, ${y}) into the stack and ` +
+                        `make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y})`;
                 }
                 else if (x - 1 < 0) {
                     console.log(`There is no left neighbour`);
                     this.description = `There is no left neighbor`;
                 }
                 else if (this.grid[y][x - 1].type === NODE_TYPE.WALL_NODE) {
-                    console.log(`Node(${x - 1},${y}) is a wall node, don't add it into stack`);
-                    this.description = `Node(${x - 1},${y}) is a wall node, don't add it into stack`;
+                    console.log(`Node(${x - 1}, ${y}) is a wall node, don't add it into stack`);
+                    this.description = `Node(${x - 1}, ${y}) is a wall node, don't add it into stack`;
                 }
                 else if (this.grid[y][x - 1].type === NODE_TYPE.SOURCE_NODE) {
-                    console.log(`Node(${x - 1},${y}) is a source node, don't add it into stack`);
-                    this.description = `Node(${x - 1},${y}) is a source node, don't add it into stack`;
+                    console.log(`Node(${x - 1}, ${y}) is a source node, don't add it into stack`);
+                    this.description = `Node(${x - 1}, ${y}) is a source node, don't add it into stack`;
                 }
                 else if (this.grid[y][x - 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x - 1},${y}) is already visited, don't add it into stack`);
-                    this.description = `Node(${x - 1},${y}) is already visited, don't add it into stack`;
+                    console.log(`Node(${x - 1}, ${y}) is already visited, don't add it into stack`);
+                    this.description = `Node(${x - 1}, ${y}) is already visited, don't add it into stack`;
                 }
                 this.currentStep = STEPPER.CONSIDER_DOWN;
             } break;
@@ -208,26 +208,26 @@ class DFSStepper {
                     this.grid[y + 1][x].parent_y = y;
                     this.addStackElement(x, y + 1);
 
-                    console.log(`Push Node(${x},${y + 1}) into the stack`);
-                    console.log(`Make Node(${x},${y}) as the parent of Node(${x},${y + 1})`);
-                    this.description = `Push Node(${x},${y + 1}) into the stack and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x},${y + 1})`;
+                    console.log(`Push Node(${x}, ${y + 1}) into the stack`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1})`);
+                    this.description = `Push Node(${x}, ${y + 1}) into the stack and ` +
+                        `make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1})`;
                 }
                 else if (y + 1 >= this.height) {
                     console.log(`There is no bottom neighbor`);
                     this.description = `There is no bottom neighbor`;
                 }
                 else if (this.grid[y + 1][x].type === NODE_TYPE.WALL_NODE) {
-                    console.log(`Node(${x},${y + 1}) is a wall node, don't add it into stack`);
-                    this.description = `Node(${x},${y + 1}) is a wall node, don't add it into stack`;
+                    console.log(`Node(${x}, ${y + 1}) is a wall node, don't add it into stack`);
+                    this.description = `Node(${x}, ${y + 1}) is a wall node, don't add it into stack`;
                 }
                 else if (this.grid[y + 1][x].type === NODE_TYPE.SOURCE_NODE) {
-                    console.log(`Node(${x},${y + 1}) is a source node, don't add it into stack`);
-                    this.description = `Node(${x},${y + 1}) is a source node, don't add it into stack`;
+                    console.log(`Node(${x}, ${y + 1}) is a source node, don't add it into stack`);
+                    this.description = `Node(${x}, ${y + 1}) is a source node, don't add it into stack`;
                 }
                 else if (this.grid[y + 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x},${y + 1}) is already visited, don't add it into stack`);
-                    this.description = `Node(${x},${y + 1}) is already visited, don't add it into stack`;
+                    console.log(`Node(${x}, ${y + 1}) is already visited, don't add it into stack`);
+                    this.description = `Node(${x}, ${y + 1}) is already visited, don't add it into stack`;
                 }
                 this.currentStep = STEPPER.CONSIDER_RIGHT;
             } break;
@@ -252,26 +252,26 @@ class DFSStepper {
                     this.grid[y][x + 1].parent_y = y;
                     this.addStackElement(x + 1, y);
 
-                    console.log(`Push Node(${x + 1},${y}) into the stack`);
-                    console.log(`Make Node(${x},${y}) as the parent of Node(${x + 1},${y})`);
-                    this.description = `Push Node(${x + 1},${y}) into the stack and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x + 1},${y})`;
+                    console.log(`Push Node(${x + 1}, ${y}) into the stack`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y})`);
+                    this.description = `Push Node(${x + 1}, ${y}) into the stack and ` +
+                        `make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y})`;
                 }
                 else if (x + 1 >= this.width) {
                     console.log(`There is no right neighbor`);
                     this.description = `There is no right neighbor`;
                 }
                 else if (this.grid[y][x + 1].type === NODE_TYPE.WALL_NODE) {
-                    console.log(`Node(${x + 1},${y}) is a wall node, don't add it into stack`);
-                    this.description = `Node(${x + 1},${y}) is a wall node, don't add it into stack`;
+                    console.log(`Node(${x + 1}, ${y}) is a wall node, don't add it into stack`);
+                    this.description = `Node(${x + 1}, ${y}) is a wall node, don't add it into stack`;
                 }
                 else if (this.grid[y][x + 1].type === NODE_TYPE.SOURCE_NODE) {
-                    console.log(`Node(${x + 1},${y}) is a source node, don't add it into stack`);
-                    this.description = `Node(${x + 1},${y}) is a source node, don't add it into stack`;
+                    console.log(`Node(${x + 1}, ${y}) is a source node, don't add it into stack`);
+                    this.description = `Node(${x + 1}, ${y}) is a source node, don't add it into stack`;
                 }
                 else if (this.grid[y][x + 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x + 1},${y}) is already visited, don't add it into stack`);
-                    this.description = `Node(${x + 1},${y}) is already visited, don't add it into stack`;
+                    console.log(`Node(${x + 1}, ${y}) is already visited, don't add it into stack`);
+                    this.description = `Node(${x + 1}, ${y}) is already visited, don't add it into stack`;
                 }
                 this.currentStep = STEPPER.CONSIDER_TOP;
             } break;
@@ -296,26 +296,26 @@ class DFSStepper {
                     this.grid[y - 1][x].parent_y = y;
                     this.addStackElement(x, y - 1);
 
-                    console.log(`Push Node(${x},${y - 1}) into the stack`);
-                    console.log(`Make Node(${x},${y}) as the parent of Node(${x},${y - 1})`);
-                    this.description = `Push Node(${x},${y - 1}) into the stack and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x},${y - 1})`;
+                    console.log(`Push Node(${x}, ${y - 1}) into the stack`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x}, ${y - 1})`);
+                    this.description = `Push Node(${x}, ${y - 1}) into the stack and ` +
+                        `make Node(${x}, ${y}) as the parent of Node(${x}, ${y - 1})`;
                 }
                 else if (y - 1 < 0) {
                     console.log(`There is no top neighbor`);
                     this.description = `There is no top neighbor`;
                 }
                 else if (this.grid[y - 1][x].type === NODE_TYPE.WALL_NODE) {
-                    console.log(`Node(${x},${y - 1}) is a wall node, don't add it into stack`);
-                    this.description = `Node(${x},${y - 1}) is a wall node, don't add it into stack`;
+                    console.log(`Node(${x}, ${y - 1}) is a wall node, don't add it into stack`);
+                    this.description = `Node(${x}, ${y - 1}) is a wall node, don't add it into stack`;
                 }
                 else if (this.grid[y - 1][x].type === NODE_TYPE.SOURCE_NODE) {
-                    console.log(`Node(${x},${y - 1}) is a source node, don't add it into stack`);
-                    this.description = `Node(${x},${y - 1}) is a source node, don't add it into stack`;
+                    console.log(`Node(${x}, ${y - 1}) is a source node, don't add it into stack`);
+                    this.description = `Node(${x}, ${y - 1}) is a source node, don't add it into stack`;
                 }
                 else if (this.grid[y - 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x},${y - 1}) is already visited, don't add it into stack`);
-                    this.description = `Node(${x},${y - 1}) is already visited, don't add it into stack`;
+                    console.log(`Node(${x}, ${y - 1}) is already visited, don't add it into stack`);
+                    this.description = `Node(${x}, ${y - 1}) is already visited, don't add it into stack`;
                 }
                 this.currentStep = STEPPER.GET_ELEM;
             } break;
@@ -345,12 +345,12 @@ class DFSStepper {
                     this.currentNode = this.grid[node.parent_y][node.parent_x];
                     this.setCurrentNodeElement(node.parent_x, node.parent_y);
                     console.log(
-                        `The parent of Node(${node.x},${node.y}) is Node(${node.parent_x},${node.parent_y}), ` +
-                        `mark Node(${node.parent_x},${node.parent_y}) as the path`
+                        `The parent of Node(${node.x}, ${node.y}) is Node(${node.parent_x}, ${node.parent_y}), ` +
+                        `mark Node(${node.parent_x}, ${node.parent_y}) as the path`
                     );
                     this.description = 
-                        `The parent of Node(${node.x},${node.y}) is Node(${node.parent_x},${node.parent_y}), ` +
-                        `mark Node(${node.parent_x},${node.parent_y}) as the path`;
+                        `The parent of Node(${node.x}, ${node.y}) is Node(${node.parent_x}, ${node.parent_y}), ` +
+                        `mark Node(${node.parent_x}, ${node.parent_y}) as the path`;
                     
                     if (this.currentNode.type !== NODE_TYPE.SOURCE_NODE) {
                         this.currentNode.changeType(NODE_TYPE.PATH_NODE);
@@ -553,11 +553,15 @@ class BFSStepper {
                     console.log(`Add Node(${x - 1}, ${y}) into the queue`);
                     console.log(`Make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y})`);
                     this.description = `Add Node(${x - 1}, ${y}) into the queue and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x - 1}, ${y})`;
+                        `make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y})`;
                 }
                 else if (x - 1 < 0) {
                     console.log(`There is no left neighbour`);
                     this.description = `There is no left neighbor`;
+                }
+                else if (this.grid[y][x - 1].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x - 1}, ${y}) is already visited, don't add it into queue`);
+                    this.description = `Node(${x - 1}, ${y}) is already visited, don't add it into queue`;
                 }
                 else if (this.addedIntoQueue[y][x - 1]) {
                     console.log(`Node(${x - 1}, ${y}) already added into queue, don't add it again`);
@@ -570,10 +574,6 @@ class BFSStepper {
                 else if (this.grid[y][x - 1].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x - 1}, ${y}) is a source node, don't add it into queue`);
                     this.description = `Node(${x - 1}, ${y}) is a source node, don't add it into queue`;
-                }
-                else if (this.grid[y][x - 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x - 1}, ${y}) is already visited, don't add it into queue`);
-                    this.description = `Node(${x - 1}, ${y}) is already visited, don't add it into queue`;
                 }
                 this.currentStep = STEPPER.CONSIDER_DOWN;
             } break;
@@ -600,13 +600,17 @@ class BFSStepper {
                     this.addQueueElement(x, y + 1);
 
                     console.log(`Add Node(${x}, ${y + 1}) into the queue`);
-                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x},${y + 1})`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1})`);
                     this.description = `Add Node(${x}, ${y + 1}) into the queue and ` +
                         `make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1})`;
                 }
                 else if (y + 1 >= this.height) {
                     console.log(`There is no bottom neighbor`);
                     this.description = `There is no bottom neighbor`;
+                }
+                else if (this.grid[y + 1][x].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x}, ${y + 1}) is already visited, don't add it into queue`);
+                    this.description = `Node(${x}, ${y + 1}) is already visited, don't add it into queue`;
                 }
                 else if (this.addedIntoQueue[y + 1][x]) {
                     console.log(`Node(${x}, ${y + 1}) already added into queue, don't add it into queue`);
@@ -619,10 +623,6 @@ class BFSStepper {
                 else if (this.grid[y + 1][x].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x}, ${y + 1}) is a source node, don't add it into queue`);
                     this.description = `Node(${x}, ${y + 1}) is a source node, don't add it into queue`;
-                }
-                else if (this.grid[y + 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x}, ${y + 1}) is already visited, don't add it into queue`);
-                    this.description = `Node(${x}, ${y + 1}) is already visited, don't add it into queue`;
                 }
                 this.currentStep = STEPPER.CONSIDER_RIGHT;
             } break;
@@ -649,13 +649,17 @@ class BFSStepper {
                     this.addQueueElement(x + 1, y);
 
                     console.log(`Add Node(${x + 1}, ${y}) into the queue`);
-                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x + 1},${y})`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y})`);
                     this.description = `Add Node(${x + 1}, ${y}) into the queue and ` +
                         `make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y})`;
                 }
                 else if (x + 1 >= this.width) {
                     console.log(`There is no right neighbor`);
                     this.description = `There is no right neighbor`;
+                }
+                else if (this.grid[y][x + 1].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x + 1}, ${y}) is already visited, don't add it into queue`);
+                    this.description = `Node(${x + 1}, ${y}) is already visited, don't add it into queue`;
                 }
                 else if (this.addedIntoQueue[y][x + 1]) {
                     console.log(`Node(${x + 1}, ${y}) already added into queue, don't add it into queue`);
@@ -668,10 +672,6 @@ class BFSStepper {
                 else if (this.grid[y][x + 1].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x + 1}, ${y}) is a source node, don't add it into queue`);
                     this.description = `Node(${x + 1}, ${y}) is a source node, don't add it into queue`;
-                }
-                else if (this.grid[y][x + 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x + 1}, ${y}) is already visited, don't add it into queue`);
-                    this.description = `Node(${x + 1}, ${y}) is already visited, don't add it into queue`;
                 }
                 this.currentStep = STEPPER.CONSIDER_TOP;
             } break;
@@ -706,6 +706,10 @@ class BFSStepper {
                     console.log(`There is no top neighbor`);
                     this.description = `There is no top neighbor`;
                 }
+                else if (this.grid[y - 1][x].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x}, ${y - 1}) is already visited, don't add it into queue`);
+                    this.description = `Node(${x}, ${y - 1}) is already visited, don't add it into queue`;
+                }
                 else if (this.addedIntoQueue[y - 1][x]) {
                     console.log(`Node(${x}, ${y - 1}) already added into queue, don't add it into queue`);
                     this.description = `Node(${x}, ${y - 1}) already added into queue, don't add it into queue`;
@@ -717,10 +721,6 @@ class BFSStepper {
                 else if (this.grid[y - 1][x].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x}, ${y - 1}) is a source node, don't add it into queue`);
                     this.description = `Node(${x}, ${y - 1}) is a source node, don't add it into queue`;
-                }
-                else if (this.grid[y - 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x},${y - 1}) is already visited, don't add it into queue`);
-                    this.description = `Node(${x}, ${y - 1}) is already visited, don't add it into queue`;
                 }
                 this.currentStep = STEPPER.GET_ELEM;
             } break;
@@ -978,12 +978,16 @@ class AStarStepper {
                     console.log(`Make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y})`);
                     console.log(`Compute the f function for the Node(${x - 1}, ${y})`);
                     this.description = `Add Node(${x - 1}, ${y}) into the open list and ` +
-                        `make Node(${x},${y}) as the parent of Node(${x - 1}, ${y}) and ` +
+                        `make Node(${x}, ${y}) as the parent of Node(${x - 1}, ${y}) and ` +
                         `compute the f function for the Node(${x - 1}, ${y})`;
                 }
                 else if (x - 1 < 0) {
                     console.log(`There is no left neighbour`);
                     this.description = `There is no left neighbor`;
+                }
+                else if (this.grid[y][x - 1].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x - 1}, ${y}) is already visited/inside closed list, don't add it into open list`);
+                    this.description = `Node(${x - 1}, ${y}) is already visited/inside closed list, don't add it into open list`;
                 }
                 else if (this.addedIntoOpenList[y][x - 1]) {
                     console.log(`Node(${x - 1}, ${y}) already added into open list, don't add it again`);
@@ -996,10 +1000,6 @@ class AStarStepper {
                 else if (this.grid[y][x - 1].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x - 1}, ${y}) is a source node, don't add it into open list`);
                     this.description = `Node(${x - 1}, ${y}) is a source node, don't add it into open list`;
-                }
-                else if (this.grid[y][x - 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x - 1}, ${y}) is already visited, don't add it into open list`);
-                    this.description = `Node(${x - 1}, ${y}) is already visited, don't add it into open list`;
                 }
                 this.currentStep = STEPPER.CONSIDER_DOWN;
             } break;
@@ -1033,7 +1033,7 @@ class AStarStepper {
                     node.addText(node.f.toString());
 
                     console.log(`Add Node(${x}, ${y + 1}) into the queue`);
-                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x},${y + 1})`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1})`);
                     console.log(`Compute the f function for the Node(${x}, ${y + 1})`);
                     this.description = `Add Node(${x}, ${y + 1}) into the open list and ` +
                         `make Node(${x}, ${y}) as the parent of Node(${x}, ${y + 1}) and ` +
@@ -1042,6 +1042,10 @@ class AStarStepper {
                 else if (y + 1 >= this.height) {
                     console.log(`There is no bottom neighbor`);
                     this.description = `There is no bottom neighbor`;
+                }
+                else if (this.grid[y + 1][x].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x}, ${y + 1}) is already visited/inside closed list, don't add it into open list`);
+                    this.description = `Node(${x}, ${y + 1}) is already visited/inside closed list, don't add it into open list`;
                 }
                 else if (this.addedIntoOpenList[y + 1][x]) {
                     console.log(`Node(${x}, ${y + 1}) already added into open list, don't add it again`);
@@ -1054,10 +1058,6 @@ class AStarStepper {
                 else if (this.grid[y + 1][x].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x}, ${y + 1}) is a source node, don't add it into open list`);
                     this.description = `Node(${x}, ${y + 1}) is a source node, don't add it into open list`;
-                }
-                else if (this.grid[y + 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x}, ${y + 1}) is already visited, don't add it into open list`);
-                    this.description = `Node(${x}, ${y + 1}) is already visited, don't add it into open list`;
                 }
                 this.currentStep = STEPPER.CONSIDER_RIGHT;
             } break;
@@ -1091,7 +1091,7 @@ class AStarStepper {
                     node.addText(node.f.toString());
 
                     console.log(`Add Node(${x + 1}, ${y}) into the queue`);
-                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x + 1},${y})`);
+                    console.log(`Make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y})`);
                     console.log(`Compute the f function for the Node(${x + 1}, ${y})`);
                     this.description = `Add Node(${x + 1}, ${y}) into the open list and ` +
                         `make Node(${x}, ${y}) as the parent of Node(${x + 1}, ${y}) and ` +
@@ -1100,6 +1100,10 @@ class AStarStepper {
                 else if (x + 1 >= this.width) {
                     console.log(`There is no right neighbor`);
                     this.description = `There is no right neighbor`;
+                }
+                else if (this.grid[y][x + 1].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x + 1}, ${y}) is already visited/inside closed list, don't add it into open list`);
+                    this.description = `Node(${x + 1}, ${y}) is already visited/inside closed list, don't add it into open list`;
                 }
                 else if (this.addedIntoOpenList[y][x + 1]) {
                     console.log(`Node(${x + 1}, ${y}) already added into open list, don't add it again`);
@@ -1112,10 +1116,6 @@ class AStarStepper {
                 else if (this.grid[y][x + 1].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x + 1}, ${y}) is a source node, don't add it into open list`);
                     this.description = `Node(${x + 1}, ${y}) is a source node, don't add it into open list`;
-                }
-                else if (this.grid[y][x + 1].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x + 1}, ${y}) is already visited, don't add it into open list`);
-                    this.description = `Node(${x + 1}, ${y}) is already visited, don't add it into open list`;
                 }
                 this.currentStep = STEPPER.CONSIDER_TOP;
             } break;
@@ -1159,6 +1159,10 @@ class AStarStepper {
                     console.log(`There is no top neighbor`);
                     this.description = `There is no top neighbor`;
                 }
+                else if (this.grid[y - 1][x].type === NODE_TYPE.VISITED_NODE) {
+                    console.log(`Node(${x}, ${y - 1}) is already visited/inside closed list, don't add it into open list`);
+                    this.description = `Node(${x}, ${y - 1}) is already visited/inside closed list, don't add it into open list`;
+                }
                 else if (this.addedIntoOpenList[y - 1][x]) {
                     console.log(`Node(${x}, ${y - 1}) already added into open list, don't add it again`);
                     this.description = `Node(${x}, ${y - 1}) already added into open list, don't add it again`;
@@ -1170,10 +1174,6 @@ class AStarStepper {
                 else if (this.grid[y - 1][x].type === NODE_TYPE.SOURCE_NODE) {
                     console.log(`Node(${x}, ${y - 1}) is a source node, don't add it into open list`);
                     this.description = `Node(${x}, ${y - 1}) is a source node, don't add it into open list`;
-                }
-                else if (this.grid[y - 1][x].type === NODE_TYPE.VISITED_NODE) {
-                    console.log(`Node(${x},${y - 1}) is already visited, don't add it into open list`);
-                    this.description = `Node(${x}, ${y - 1}) is already visited, don't add it into open list`;
                 }
                 this.currentStep = STEPPER.GET_ELEM;
             } break;
