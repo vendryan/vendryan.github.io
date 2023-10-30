@@ -1,0 +1,204 @@
+:root {
+  --fs-default: 100%;
+  --fs-sm: 0.875em;
+  --font-size: 1rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+  --fs-xxl: 2.5rem;
+  --fs-xxxl: 3rem;
+  --line-height: 1.5;
+  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --code-family: monaco, "Consolas", "Lucida Console", monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --spacing-sm: 0.75rem;
+  --spacing: 1.5rem;
+  --spacing-lg: 2.25rem;
+  --spacing-xl: 3rem;
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+dt,
+dd,
+dl,
+hr,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea,
+option,
+optgroup {
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+textarea {
+  overflow: auto;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: var(--fs-default);
+  line-height: var(--line-height);
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+h1 {
+  font-size: var(--fs-xxl);
+}
+
+h2 {
+  font-size: var(--fs-xl);
+}
+
+h3 {
+  font-size: var(--fs-lg);
+}
+
+main,
+aside,
+figure,
+section,
+article,
+header,
+footer {
+  display: block;
+}
+
+pre,
+code {
+  font-family: var(--code-family);
+}
+
+/** GRID DISPLAY **/
+.grid-50-50 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/** VISUALIZER STYLE **/
+.visualizer-grid {
+  border-left-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  border-style: solid;
+}
+.visualizer-grid__row {
+  display: grid;
+}
+.visualizer-grid__node {
+  padding-top: 100%;
+  position: relative;
+  background: transparent;
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--border-rb {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+}
+.visualizer-grid__node--visited {
+  background-color: rgb(0, 0, 255);
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--wall {
+  background-color: rgb(0, 0, 0);
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--source {
+  background-color: rgb(255, 255, 0);
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--destination {
+  background-color: rgb(0, 255, 0);
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--path {
+  background-color: rgb(255, 0, 0);
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--highlight {
+  background-color: blueviolet;
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__node--future {
+  background-color: lightgreen;
+  transition: ease-in 0.2s;
+}
+.visualizer-grid__text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container > div {
+  margin: 0 0.25rem;
+  padding: 0.25 0.5rem;
+  transition: ease-in 0.2s;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+}
